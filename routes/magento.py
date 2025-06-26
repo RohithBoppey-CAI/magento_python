@@ -20,3 +20,8 @@ def generate_api_key(request: APIKeyRequest):
 @magento_router.post("/retrieve_products")
 def retreive_products(request: CatalogRequest, token):
     return retrive_store_products(request, token)
+
+
+@magento_router.post("/bulk/retrieve_products")
+def retreive_products_bulk(request: CatalogRequest, token):
+    return retrive_store_products(request, token, bulk=True, save=True)
